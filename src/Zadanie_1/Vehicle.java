@@ -8,6 +8,7 @@ public class Vehicle {
     public Vehicle(String name, double averageFuelConsumption, int tankCapacity) {
         this.name = name;
         this.averageFuelConsumption = averageFuelConsumption;
+
         this.tankCapacity = tankCapacity;
     }
 

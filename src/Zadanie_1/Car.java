@@ -2,21 +2,15 @@ package Zadanie_1;
 
 public class Car extends Vehicle {
     private boolean airCondition;
+    static final double CAR_FUEL_COMBUSION_DIFF = 0.8;
+
 
     public Car(String name, double averageFuelConsumption, int tankCapacity, boolean airCondition) {
-
         super(name, averageFuelConsumption, tankCapacity);
         this.airCondition = airCondition;
         if (airCondition){
-            setAverageFuelConsumption(getAverageFuelConsumption()+0.8);
+            setAverageFuelConsumption(getAverageFuelConsumption()+CAR_FUEL_COMBUSION_DIFF);
         }
-
-    }
-
-
-
-    public Car(String name, double averageFuelConsumption, int tankCapacity) {
-        super(name, averageFuelConsumption, tankCapacity);
     }
 
     public boolean getAirConition() {
@@ -24,13 +18,13 @@ public class Car extends Vehicle {
     }
 
     public void setAirCondition(boolean airCondition, Vehicle vehicle) {
-        double fuelCombustionDifference= 0;
+        double fuelCombustionDifference= 0.8;
 
         if (vehicle instanceof Car) {
-            fuelCombustionDifference = 0.8;
+            fuelCombustionDifference = CAR_FUEL_COMBUSION_DIFF;
         }
         if (vehicle instanceof Truck) {
-            fuelCombustionDifference = 1.6;
+            fuelCombustionDifference = CAR_FUEL_COMBUSION_DIFF+Truck.TRUCK_FUEL_COMBUSION_DIFF;
         }
 
         boolean temp = getAirConition();

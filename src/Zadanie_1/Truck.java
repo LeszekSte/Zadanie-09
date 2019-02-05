@@ -2,14 +2,14 @@ package Zadanie_1;
 
 public class Truck extends Car {
     private int capacity;
+    static final double TRUCK_FUEL_COMBUSION_DIFF = 0.8;
 
-    public Truck(String name, double averageFuelConsumption, int tankCapacity, int capacity) {
-        super(name, averageFuelConsumption, tankCapacity);
+    public Truck(String name, double averageFuelConsumption, int tankCapacity, boolean airCondition, int capacity) {
+        super(name,averageFuelConsumption, tankCapacity,airCondition);
+        if (airCondition){
+            setAverageFuelConsumption(getAverageFuelConsumption()+TRUCK_FUEL_COMBUSION_DIFF);
+        }
         this.capacity = capacity;
-    }
-
-    public Truck(String name, double averageFuelConsumption, int tankCapacity) {
-        super(name, averageFuelConsumption, tankCapacity);
     }
 
     public int getCapacity() {
@@ -25,5 +25,3 @@ public class Truck extends Car {
         return super.toString()+ ", Ładowność - " +capacity;
     }
 }
-
-© 2019 GitHub, Inc.
