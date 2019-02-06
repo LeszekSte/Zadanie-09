@@ -36,12 +36,15 @@ public class Vehicle {
         this.tankCapacity = tankCapacity;
     }
 
+    void zasiegPojazdu() {
+        System.out.printf("zasięg - %.0f km \n", getTankCapacity() / getAverageFuelConsumption() * 100);
+    }
+
     @Override
     public String toString() {
         return "Vehicle{" +
                 "name='" + name + '\'' +
-                ", averageFuelConsumption=" + averageFuelConsumption +
-                ", tankCapacity=" + tankCapacity +
-                '}';
+                ", averageFuelConsumption=" + averageFuelConsumption +" l/100km"+
+                ", tankCapacity=" + tankCapacity + " liters" ;
     }
 }

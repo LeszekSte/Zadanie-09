@@ -8,8 +8,8 @@ public class Car extends Vehicle {
     public Car(String name, double averageFuelConsumption, int tankCapacity, boolean airCondition) {
         super(name, averageFuelConsumption, tankCapacity);
         this.airCondition = airCondition;
-        if (airCondition){
-            setAverageFuelConsumption(getAverageFuelConsumption()+CAR_FUEL_COMBUSION_DIFF);
+        if (airCondition) {
+            setAverageFuelConsumption(getAverageFuelConsumption() + CAR_FUEL_COMBUSION_DIFF);
         }
     }
 
@@ -17,29 +17,26 @@ public class Car extends Vehicle {
         return airCondition;
     }
 
-    public void setAirCondition(boolean airCondition, Vehicle vehicle) {
-        double fuelCombustionDifference= 0.8;
-
-        if (vehicle instanceof Car) {
-            fuelCombustionDifference = CAR_FUEL_COMBUSION_DIFF;
-        }
-        if (vehicle instanceof Truck) {
-            fuelCombustionDifference = CAR_FUEL_COMBUSION_DIFF+Truck.TRUCK_FUEL_COMBUSION_DIFF;
-        }
-
+    public void setAirCondition(boolean airCondition) {
         boolean temp = getAirConition();
         if (airCondition == true && temp == false) {
-            setAverageFuelConsumption(getAverageFuelConsumption() + fuelCombustionDifference);
+            setAverageFuelConsumption(getAverageFuelConsumption() + CAR_FUEL_COMBUSION_DIFF);
         } else if (airCondition == false && temp == true) {
-            setAverageFuelConsumption(getAverageFuelConsumption() - fuelCombustionDifference);
+            setAverageFuelConsumption(getAverageFuelConsumption() - CAR_FUEL_COMBUSION_DIFF);
         }
         this.airCondition = airCondition;
     }
 
     @Override
+    void zasiegPojazdu() {
+        System.out.print("samochód, ");
+        super.zasiegPojazdu();
+    }
+
+
+    @Override
     public String toString() {
         return super.toString() + " Klima " + airCondition;
     }
-
 
 }
