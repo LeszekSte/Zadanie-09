@@ -19,19 +19,15 @@ public class Car extends Vehicle {
 
     public void setAirCondition(boolean airCondition) {
         boolean temp = getAirConition();
-        if (airCondition == true && temp == false) {
+        if (airCondition && !temp) {
             setAverageFuelConsumption(getAverageFuelConsumption() + CAR_FUEL_COMBUSION_DIFF);
-        } else if (airCondition == false && temp == true) {
+        } else if (!airCondition && temp) {
             setAverageFuelConsumption(getAverageFuelConsumption() - CAR_FUEL_COMBUSION_DIFF);
         }
         this.airCondition = airCondition;
     }
 
-    @Override
-    void zasiegPojazdu() {
-        System.out.print("samochód, ");
-        super.zasiegPojazdu();
-    }
+
 
 
     @Override

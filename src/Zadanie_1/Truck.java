@@ -25,18 +25,14 @@ public class Truck extends Car {
         boolean temp = getAirConition();
         super.setAirCondition(airCondition);
 
-        if (airCondition == true && temp == false) {
+        if (airCondition && !temp) {
             setAverageFuelConsumption(getAverageFuelConsumption() + TRUCK_FUEL_COMBUSION_DIFF);
-        } else if (airCondition == false && temp == true) {
+        } else if (!airCondition && temp) {
             setAverageFuelConsumption(getAverageFuelConsumption() - TRUCK_FUEL_COMBUSION_DIFF);
         }
     }
 
-    @Override
-    void zasiegPojazdu() {
-        System.out.print("ciężarowy ");
-        super.zasiegPojazdu();
-    }
+
 
     @Override
     public String toString() {
